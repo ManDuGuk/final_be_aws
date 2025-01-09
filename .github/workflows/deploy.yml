@@ -90,7 +90,7 @@ jobs:
             cp /home/ec2-user/app/.env /home/ec2-user/app/.env
 
             # 애플리케이션 실행 (빌드 없이 바로 실행)
-            pm2 start src/index.js --name "my-app"  # 엔트리 파일에 맞게 수정 (예: src/index.js)
+            pm2 start app.ts --name "my-app"  # 엔트리 파일에 맞게 수정 (예: src/index.js)
 
             # PM2에서 애플리케이션의 상태 확인
             pm2 list
