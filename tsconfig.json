@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // 변환할 JavaScript 버전
+    "module": "CommonJS", // Node.js에서 사용하는 모듈 시스템
+    "outDir": "./dist", // 빌드 결과물 저장 폴더
+    "rootDir": "./", // TypeScript 소스 파일 루트 디렉토리
+    "strict": true, // 엄격한 타입 검사
+    "esModuleInterop": true, // ES6 모듈 호환성
+    "skipLibCheck": true, // 라이브러리 타입 체크 생략
+    "forceConsistentCasingInFileNames": true // 파일명 대소문자 일관성 유지
+  },
+  "include": ["**/*.ts"], // 빌드에 포함할 파일
+  "exclude": ["node_modules", "dist"] // 빌드에서 제외할 폴더
+}
