@@ -39,7 +39,7 @@ if (process.env.MORGAN === 'true') {
 }
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'http://localhost:3001'],
+    origin: ['http://13.124.52.198:3000', 'http://13.124.52.198:3001'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   })
@@ -85,6 +85,6 @@ app.use((err: Error, req, res, next) => {
 });
 
 server.listen(port, async () => {
-  console.log(`http://localhost:${port}`);
+  console.log(`http://13.124.52.198:${port}`);
   await startConsumer();
 });
