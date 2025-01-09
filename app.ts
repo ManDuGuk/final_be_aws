@@ -84,6 +84,10 @@ app.use((err: Error, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
+app.get('/', (req, res) => {
+  res.send('서버가 정상적으로 동작 중입니다!');
+});
+
 server.listen(port, async () => {
   console.log(`http://13.124.52.198:${port}`);
   await startConsumer();
