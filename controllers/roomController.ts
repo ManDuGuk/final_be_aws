@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import * as roomService from "../services/roomService";
-import { Room } from '../models/Room';
+import { Room } from '../models/room';
 import { promises } from 'dns';
 import { findFollowingsByUser } from '../services/userService';
 
