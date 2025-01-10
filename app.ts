@@ -39,7 +39,7 @@ if (process.env.MORGAN === 'true') {
 }
 app.use(
   cors({
-    origin: ['http://13.124.52.198:3000', 'http://13.124.52.198:3001'],
+    origin: ['https://final-fe-vercel.vercel.app/', 'http://13.124.52.198:3001'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   })
@@ -89,6 +89,6 @@ app.get('/', (req, res) => {
 });
 
 server.listen(port, async () => {
-  console.log(`http://13.124.52.198:${port}`);
+  console.log(`http://localhost:${port}`);
   await startConsumer();
 });
