@@ -39,6 +39,7 @@ const handleConnection = (socket: Socket): void => {
     console.log(`Received event: ${event}, with args:`, args);
   });
 
+
   // 사용자 등록 이벤트 처리
   socket.on("register", (userId: string, callback: (ack: { status: string; message: string }) => void) => {
     registerUser(userId, socket);
