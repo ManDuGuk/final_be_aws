@@ -25,7 +25,19 @@ export const initializeSocket = (server: http.Server): SocketIOServer | null => 
 
 // 소켓 연결 핸들러
 const handleConnection = (socket: Socket): void => {
+
+  // 정상연결되면
   console.log("Socket connected:", socket.id);
+
+  // 소켓 에러 출력
+  socket.on("error", (err: any) => {
+    console.error("Socket error:", err);
+  });
+
+  // 들어오는 이벤트 로깅
+  socket.onAny((event: any, ...args: any) => {
+    console.log(`Received event: ${event}, with args:`, args);
+  });
 
   // 사용자 등록 이벤트 처리
   socket.on("register", (userId: string, callback: (ack: { status: string; message: string }) => void) => {
@@ -42,6 +54,8 @@ const handleConnection = (socket: Socket): void => {
   socket.on("disconnect", () => {
     handleDisconnection(socket);
   });
+
+
 };
 
 // 사용자 등록

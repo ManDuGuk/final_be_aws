@@ -119,7 +119,7 @@
  *                 description: 인플루언서 ID
  *               visibilityLevel:
  *                 type: integer
- *                 description: 공개 수준 (1: 기본값)
+ *                 description: 공개 수준 기본값 1
  *     responses:
  *       200:
  *         description: 인플루언서 채팅방 생성 메시지
