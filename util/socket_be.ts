@@ -6,11 +6,13 @@ import { userSocketMap } from "./socketState";
 let io: SocketIOServer | null = null;
 
 // RabbitMQ 초기화 플래그
-// let isRabbitMQInitialized = false;
+let isRabbitMQInitialized = false;
 
 // 소켓 초기화
 export const initializeSocket = (server: http.Server): SocketIOServer | null => {
   console.log("Initializing Socket.IO...");
+  console.log("server: ", server);
+
   io = new SocketIOServer(server, {
     cors: {
       origin: ['https://final-fe-vercel.vercel.app', 'https://whatcpu.p-e.kr'],
@@ -20,13 +22,12 @@ export const initializeSocket = (server: http.Server): SocketIOServer | null => 
     path: "/socket.io/", // 클라이언트와 동일한 경로
   });
 
+  console.log(io);
 
 
   io.on("connection", handleConnection);
   console.log("Socket.IO initialized.");
   return io;
-
-
 };
 
 
