@@ -95,5 +95,5 @@ app.get('/', (req, res) => {
 
 server.listen(port, async () => {
   console.log(`http://localhost:${port}`);
-  await startConsumer();
+  // await startConsumer();
 });

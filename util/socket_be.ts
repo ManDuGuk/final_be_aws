@@ -34,8 +34,12 @@ export const initializeSocket = (server: http.Server): SocketIOServer | null => 
 // 소켓 연결 핸들러
 const handleConnection = (socket: Socket): void => {
 
-  // 정상연결되면
-  console.log("Socket connected:", socket.id);
+  console.log("New client connected:", socket.id); // 클라이언트 소켓 ID 확인
+  console.log("Headers:", socket.handshake.headers); // 요청 헤더 확인
+  console.log("Path:", socket.handshake.url); // 클라이언트 요청 경로 확인
+  console.log("CORS Origin: ", io.opts.cors.origin);
+  console.log("CORS Path: ", io.opts.path);
+
 
   // 소켓 에러 출력
   socket.on("error", (err: any) => {
