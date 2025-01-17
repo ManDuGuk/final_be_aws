@@ -6,7 +6,7 @@ import { userSocketMap } from "./socketState";
 let io: SocketIOServer | null = null;
 
 // RabbitMQ 초기화 플래그
-let isRabbitMQInitialized = false;
+// let isRabbitMQInitialized = false;
 
 // 소켓 초기화
 export const initializeSocket = (server: http.Server): SocketIOServer | null => {
@@ -89,11 +89,11 @@ const handleDisconnection = (socket: Socket): void => {
 const handleTestNotification = async (data: { influencerId: string; message: string }): Promise<void> => {
   try {
     // RabbitMQ 초기화: 중복 초기화 방지
-    if (!isRabbitMQInitialized) {
-      console.log("Initializing RabbitMQ...");
-      await initializeRabbitMQ();
-      isRabbitMQInitialized = true;
-    }
+    // if (!isRabbitMQInitialized) {
+    //   console.log("Initializing RabbitMQ...");
+    //   await initializeRabbitMQ();
+    //   isRabbitMQInitialized = true;
+    // }
 
     console.log("Sending test notification to RabbitMQ:", data);
     await sendMsgToQueue(data);
