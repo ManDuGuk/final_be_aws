@@ -13,15 +13,22 @@ export const initializeSocket = (server: http.Server): SocketIOServer | null => 
   console.log("Initializing Socket.IO...");
   io = new SocketIOServer(server, {
     cors: {
-      origin: "*",
-      methods: ["GET", "POST"],
+      origin: ['https://final-fe-vercel.vercel.app', 'https://whatcpu.p-e.kr'],
+      credentials: true,
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     },
+    path: "/socket.io/", // 클라이언트와 동일한 경로
   });
+
+
 
   io.on("connection", handleConnection);
   console.log("Socket.IO initialized.");
   return io;
+
+
 };
+
 
 // 소켓 연결 핸들러
 const handleConnection = (socket: Socket): void => {

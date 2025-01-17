@@ -39,7 +39,7 @@ if (process.env.MORGAN === 'true') {
 }
 app.use(
   cors({
-    origin: ['https://final-fe-vercel.vercel.app', 'http://13.124.52.198:3001'],
+    origin: ['https://final-fe-vercel.vercel.app', 'https://whatcpu.p-e.kr'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   })
@@ -65,7 +65,12 @@ app.use('/comment', commentRouter);
 app.use('/homefeed', homeFeedRouter);
 app.use('/admin', admin);
 
-initializeSocket(server);
+const io = initializeSocket(server);
+
+// Connection Error 핸들러 등록
+io?.engine.on("connection_error", (err: any) => {
+  console.error("Socket.IO connection error:", err); // 에러 로그 출력
+});
 
 sequelize
   .authenticate()
